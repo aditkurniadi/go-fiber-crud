@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "Go Fiber CRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/tasks",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"{{task_title}}\",\n  \"description\": \"{{task_description}}\",\n  \"completed\": {{task_completed}}\n}"
+        }
+      }
+    },
+    {
+      "name": "Get All Tasks",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/tasks"
+      }
+    },
+    {
+      "name": "Get Task By ID",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/tasks/{{task_id}}"
+      }
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{base_url}}/api/tasks/{{task_id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"{{task_title}}\",\n  \"description\": \"{{task_description}}\",\n  \"completed\": {{task_completed}}\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/api/tasks/{{task_id}}"
+      }
+    }
+  ]
+}
