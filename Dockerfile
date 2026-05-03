@@ -12,7 +12,6 @@ FROM alpine:3.20
 
 WORKDIR /app
 COPY --from=builder /app/app ./app
-COPY .env ./
 
 EXPOSE 3000
 CMD ["./app"]

@@ -1,0 +1,6 @@
+.env
+.git
+.vscode
+postman_collection.json
+postman_environment.json
+Readme.md

@@ -20,7 +20,7 @@ func main() {
 
 	routes.RegisterTaskRoutes(app, db)
 
-	port := config.GetEnv("APP_PORT", "3000")
+	port := config.GetEnv("PORT", config.GetEnv("APP_PORT", "3000"))
 	if err := app.Listen(":" + port); err != nil {
 		log.Fatal(err)
 	}

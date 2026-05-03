@@ -22,6 +22,13 @@ API endpoints:
 - `PUT /api/tasks/:id`
 - `DELETE /api/tasks/:id`
 
+Docker deploy:
+- Use [Dockerfile](Dockerfile) for the app image
+- Use [docker-compose.prod.yml](docker-compose.prod.yml) if you want Dokploy to run app + Postgres as one stack
+- In Dokploy, set the app service port to `3000`
+- If port `80` is already occupied by another project, do not publish this app directly to `80`; route it through Dokploy's domain/proxy to the internal port `3000`
+- Set database host to `db` in production so the app connects to the Postgres container instead of `localhost`
+
 Postman environment:
 - Import [postman_environment.json](postman_environment.json) into Postman
 - Import [postman_collection.json](postman_collection.json) after that
