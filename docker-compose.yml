@@ -1,4 +1,37 @@
 version: '3.8'
+
+services:
+  app:
+    build: .
+    restart: always
+    environment:
+      APP_NAME: go-fiber-crud
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: user_admin
+      DB_PASSWORD: password123
+      DB_NAME: crud_db
+      DB_SSLMODE: disable
+      DB_TIMEZONE: Asia/Jakarta
+    depends_on:
+      - db
+    expose:
+      - "3000"
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: user_admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: crud_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+version: '3.8'
 services:
   db:
     image: postgres:15-alpine
