@@ -20,9 +20,8 @@ func ConnectDB() *gorm.DB {
 	password := config.GetEnv("DB_PASSWORD", "password123")
 	dbName := config.GetEnv("DB_NAME", "crud_db")
 	sslMode := config.GetEnv("DB_SSLMODE", "disable")
-	timeZone := config.GetEnv("DB_TIMEZONE", "Asia/Jakarta")
 
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s", host, user, password, dbName, port, sslMode, timeZone)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s", host, user, password, dbName, port, sslMode)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal("failed to connect database: ", err)

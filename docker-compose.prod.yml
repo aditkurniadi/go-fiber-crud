@@ -11,7 +11,6 @@ services:
       DB_PASSWORD: password123
       DB_NAME: crud_db
       DB_SSLMODE: disable
-      DB_TIMEZONE: Asia/Jakarta
     depends_on:
       - db
     expose:
